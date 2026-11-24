@@ -554,3 +554,28 @@ footer p {
   filter: blur(3px) brightness(0.28);
   transform: scale(1.04);
 }
+
+/* КР №4: корзина и модальное окно */
+.quick-view__grid {
+  grid-template-columns: minmax(0, 1fr);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+}
+
+.cart-item {
+  align-items: flex-start;
+}
+
+.cart-item__quantity {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .quick-view__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .cart-item__quantity {
+    width: auto;
+  }
+}

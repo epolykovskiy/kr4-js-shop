@@ -7,13 +7,11 @@
   <title>Главная — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <script src="js/main.js" defer></script>
   <script src="js/theme.js"></script>
-  <script src="js/validation.js" defer></script>
-  <script src="js/dialog.js" defer></script>
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Учебный интернет-магазин">
-  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/catalog.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">К содержимому</a>
@@ -31,16 +29,13 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
+            <a class="site-nav__link" href="cart.html">Корзина <span class="cart-badge" hidden>0</span></a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="order.html">Сделать заказ</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="feedback.html">Обратная связь</a>
@@ -58,194 +53,34 @@
       </picture>
       <h1>Мерч 1С для каждого дня</h1>
       <p>
-        Тёплые тапочки, яркие сабо и носки с любимым логотипом.
-        Выбирайте мерч в каталоге и попробуйте оформить учебную заявку.
+        Тёплые тапочки, яркие сабо, носки, футболки и аксессуары с любимым логотипом.
+        Выбирайте мерч в каталоге, добавляйте в корзину и пробуйте оформить учебную заявку.
       </p>
       <a class="button button--primary" href="#popular">Перейти к товарам</a>
-
     </section>
 
     <section class="section" id="advantages">
       <h2>Почему ShopProject</h2>
 
       <ul class="advantages-list">
-        <li>Шесть товаров с узнаваемым логотипом 1С;</li>
-        <li>Размеры и характеристики рядом с товаром;</li>
-        <li>Удобный каталог на телефоне и компьютере;</li>
-        <li>Быстрая учебная заявка без регистрации</li>
+        <li>Десять товаров с узнаваемым логотипом 1С;</li>
+        <li>Карточки товаров формируются на JavaScript;</li>
+        <li>Поиск, фильтры и сортировка в каталоге;</li>
+        <li>Корзина с промокодами и быстрая учебная заявка</li>
       </ul>
     </section>
 
     <section class="section" id="popular">
       <h2>Популярные товары</h2>
-
-      <div class="products-grid">
-        <article class="product-card product-card--featured">
-          <img class="product-card__image" src="images/tapchan.webp" alt="Жёлтые меховые тапочки с логотипом 1С" srcset="images/tapchan-320.webp 320w, images/tapchan-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="703" loading="lazy">
-          <h3 class="product-card__title">Тапочки меховые «1С»</h3>
-          <span class="product-card__badge product-card__badge--hit">Хит</span>
-          <p class="product-card__description">Мерч для работы, дома и подарков.</p>
-          <p class="product-card__price">Цена: 1000 руб.</p>
-          <div class="product-card__actions">
-            <button
-              class="button button--primary product-card__button"
-              type="button"
-              data-product="Тапочки меховые «1С»"
-            >
-              Заказать
-            </button>
-            <a class="button button--secondary" href="product.html">Подробнее</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img class="product-card__image" src="images/kroxi.webp" alt="Жёлтые сабо с логотипом 1С" srcset="images/kroxi-320.webp 320w, images/kroxi-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="625" loading="lazy">
-          <h3 class="product-card__title">Сабо «1С»</h3>
-          <p class="product-card__description">Мерч для работы, дома и подарков.</p>
-          <p class="product-card__price">Цена: 1500 руб.</p>
-          <div class="product-card__actions">
-            <button
-              class="button button--primary product-card__button"
-              type="button"
-              data-product="Сабо «1С»"
-            >
-              Заказать
-            </button>
-
-          </div>
-        </article>
-
-        <article class="product-card">
-          <img class="product-card__image" src="images/sapogi.webp" alt="Жёлтые резиновые сапоги с логотипом 1С" srcset="images/sapogi-320.webp 320w, images/sapogi-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="849" loading="lazy">
-          <h3 class="product-card__title">Резиновые сапоги «1С»</h3>
-          <p class="product-card__description">Мерч для работы, дома и подарков.</p>
-          <p class="product-card__price">Цена: 2000 руб.</p>
-          <div class="product-card__actions">
-            <button
-              class="button button--primary product-card__button"
-              type="button"
-              data-product="Резиновые сапоги «1С»"
-            >
-              Заказать
-            </button>
-
-          </div>
-        </article>
-      </div>
+      <div class="products-grid" id="popular-grid"></div>
     </section>
-
-    <p class="success-message" id="success-message" role="status" hidden>
-      Учебная заявка проверена. Данные никуда не отправлены.
-    </p>
   </main>
 
-
-  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
-
-    <p>Учебная форма: данные никуда не отправляются.</p>
-    <p id="dialog-product" class="selected-product"></p>
-    <form class="order-form" id="order-form" action="#" method="post" novalidate>
-      <input id="selected-product" name="selected-product" type="hidden">
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-name">Имя (обязательно)</label>
-        <input
-         class="order-form__input"
-         id="order-name"
-         autofocus name="name"
-         type="text"
-         placeholder="Введите ваше имя"
-         minlength="2"
-         autocomplete="given-name"
-         required
-        >
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-email">E-mail (обязательно)</label>
-        <input
-         class="order-form__input"
-         id="order-email"
-         name="email"
-         type="email"
-         placeholder="example@mail.ru"
-         autocomplete="email"
-         required
-        >
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-phone">Телефон (обязательно)</label>
-        <input
-         class="order-form__input"
-         id="order-phone"
-         name="phone"
-         type="tel"
-         autocomplete="tel" inputmode="tel" aria-describedby="phone-hint"
-         placeholder="+7 (900) 000-00-00"
-         pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-         required
-        >
-        <small id="phone-hint">Формат: +7 (900) 000-00-00</small>
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-date">Дата связи</label>
-        <input
-          class="order-form__input"
-          id="order-date"
-          name="date"
-          type="date"
-        >
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-topic">Тема заявки (обязательно)</label>
-        <select class="order-form__select" id="order-topic" name="topic" required>
-        <option value="">Выберите тему</option>
-        <option value="product">Заказ товара</option>
-        <option value="consultation">Консультация</option>
-        <option value="delivery">Доставка</option>
-        </select>
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-comment">Комментарий</label>
-        <textarea class="order-form__textarea"
-          id="order-comment"
-          name="comment"
-          rows="4"
-          placeholder="Укажите дополнительную информацию"
-        ></textarea>
-      </div>
-
-      <div class="order-form__field order-form__field--checkbox">
-        <label>
-        <input
-          id="order-agreement"
-          name="agreement"
-          type="checkbox"
-          required
-        >
-        Я согласен на обработку данных (обязательно)
-        </label>
-      </div>
-
-      <div class="order-form__actions">
-        <button class="button button--secondary" type="button" id="close-order-dialog">
-          Закрыть
-        </button>
-        <button class="button button--primary" type="submit">
-          Проверить заявку
-        </button>
-      </div>
-    </form>
-  </dialog>
-
-  <footer id="contacts">
+  <footer>
     <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
+
+  <div class="toast" id="toast" role="status" hidden></div>
 </body>
 </html>

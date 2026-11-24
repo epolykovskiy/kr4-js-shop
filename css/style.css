@@ -725,12 +725,40 @@ a:focus-visible {
 }
 
 .quick-view {
+  position: relative;
   width: min(100% - 32px, 720px);
   padding: 0;
   border: none;
   border-radius: var(--radius-lg);
   color: var(--color-text);
   background-color: var(--color-surface);
+}
+
+.quick-view__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text);
+  border-radius: 50%;
+}
+
+.quick-view__close:hover {
+  background-color: var(--color-bg);
+}
+
+.quick-view__close:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
 }
 
 .quick-view::backdrop {

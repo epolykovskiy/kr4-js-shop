@@ -55,10 +55,6 @@
 
     <section class="section">
       <h1>Каталог товаров</h1>
-      <p>
-        Карточки товаров формируются на JavaScript из массива в <code>js/data.js</code>.
-        Используйте поиск, категорию, диапазон цен и сортировку.
-      </p>
     </section>
 
     <section class="catalog-layout">
@@ -107,6 +103,7 @@
   </main>
 
   <dialog class="quick-view" id="quick-view" aria-labelledby="quick-view-title">
+    <button class="quick-view__close" type="button" id="quick-view-close" aria-label="Закрыть">×</button>
     <div class="quick-view__grid">
       <img class="quick-view__image" id="quick-view-image" src="" alt="">
       <div class="quick-view__info">
@@ -119,7 +116,6 @@
         <div class="quick-view__actions">
           <button class="button button--primary product-card__add" type="button" id="quick-view-add" data-id="">В корзину</button>
           <a class="button button--secondary" id="quick-view-details" href="product.html">Открыть страницу</a>
-          <button class="button button--secondary" type="button" id="quick-view-close">Закрыть</button>
         </div>
       </div>
     </div>

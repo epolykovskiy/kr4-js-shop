@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+  <title>Каталог товаров — Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">К содержимому</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <button class="button button--secondary site-header__theme" id="theme-toggle" type="button">Тёмная тема</button>
+      <button class="button button--secondary menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden>Меню</button>
+      <nav id="main-navigation" class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" aria-current="page" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Сделать заказ</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="feedback.html">Обратная связь</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__separator">/</span>
+      <span class="breadcrumbs__current">Каталог</span>
+    </nav>
+
+    <section class="section">
+      <h1>Каталог товаров</h1>
+      <p>
+        Выберите категорию и диапазон цен. Фильтры работают в браузере; найденные товары можно отсортировать по цене.
+      </p>
+    </section>
+
+    <section class="catalog-layout">
+      <aside class="catalog-filters">
+        <details class="filters-disclosure" open>
+        <summary>Фильтры каталога</summary>
+
+        <form class="filters-form" action="#" method="get">
+          <fieldset>
+            <legend>Категория</legend>
+            <label><input type="radio" name="category" value="all" checked> Все товары</label>
+            <label><input type="radio" name="category" value="shoes"> Обувь</label>
+            <label><input type="radio" name="category" value="socks"> Носки</label>
+          </fieldset>
+          <fieldset>
+            <legend>Цена</legend>
+
+            <label for="price-from">От</label>
+            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+
+            <label for="price-to">До</label>
+            <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+          </fieldset>
+
+          <label for="catalog-sort">Сортировка</label>
+          <select id="catalog-sort" name="sort"><option value="default">По умолчанию</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select>
+          <button class="button button--primary" type="submit">Применить</button>
+          <button class="button button--secondary" type="reset">Сбросить</button>
+          <p class="filter-error" role="alert" hidden></p>
+        </form>
+        </details>
+      </aside>
+
+      <section class="catalog-products">
+        <h2>Список товаров</h2>
+        <p id="catalog-status" role="status">Найдено товаров: 6</p>
+        <p id="catalog-empty" hidden>Ничего не найдено. Попробуйте изменить или сбросить фильтры.</p>
+
+        <div class="products-grid">
+          <article class="product-card" data-price="1000" data-category="shoes" data-index="0">
+            <img class="product-card__image" src="images/tapchan.webp" alt="Жёлтые меховые тапочки с логотипом 1С" srcset="images/tapchan-320.webp 320w, images/tapchan-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="703" loading="lazy">
+            <h3 class="product-card__title">Тапочки меховые «1С»</h3>
+            <p class="product-card__description">Мерч 1С для повседневного комфорта.</p>
+            <p class="product-card__price">Цена: 1000 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <a class="button button--primary" href="order.html?product=product-1">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="1500" data-category="shoes" data-index="1">
+            <img class="product-card__image" src="images/kroxi.webp" alt="Жёлтые сабо с логотипом 1С" srcset="images/kroxi-320.webp 320w, images/kroxi-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="625" loading="lazy">
+            <h3 class="product-card__title">Сабо «1С»</h3>
+
+            <p class="product-card__description">Мерч 1С для повседневного комфорта.</p>
+            <p class="product-card__price">Цена: 1500 руб.</p>
+            <div class="product-card__actions">
+
+              <a class="button button--primary" href="order.html?product=product-2">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="2000" data-category="shoes" data-index="2">
+            <img class="product-card__image" src="images/sapogi.webp" alt="Жёлтые резиновые сапоги с логотипом 1С" srcset="images/sapogi-320.webp 320w, images/sapogi-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="849" loading="lazy">
+            <h3 class="product-card__title">Резиновые сапоги «1С»</h3>
+            <p class="product-card__description">Мерч 1С для повседневного комфорта.</p>
+            <p class="product-card__price">Цена: 2000 руб.</p>
+            <div class="product-card__actions">
+
+              <a class="button button--primary" href="order.html?product=product-3">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="1200" data-category="shoes" data-index="3">
+            <img class="product-card__image" src="images/tapchan2.webp" alt="Серые меховые тапочки с логотипом 1С" srcset="images/tapchan2-320.webp 320w, images/tapchan2-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="757" height="800" loading="lazy">
+            <h3 class="product-card__title">Тапочки серые «1С»</h3>
+            <p class="product-card__description">Мерч 1С для повседневного комфорта.</p>
+            <p class="product-card__price">Цена: 1200 руб.</p>
+            <div class="product-card__actions">
+
+              <a class="button button--primary" href="order.html?product=product-4">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="500" data-category="socks" data-index="4">
+            <img class="product-card__image" src="images/noski.webp" alt="Чёрные носки с логотипом 1С" srcset="images/noski-320.webp 320w, images/noski-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="592" loading="lazy">
+            <h3 class="product-card__title">Носки чёрные «1С»</h3>
+            <p class="product-card__description">Мерч 1С для повседневного комфорта.</p>
+            <p class="product-card__price">Цена: 500 руб.</p>
+            <div class="product-card__actions">
+
+              <a class="button button--primary" href="order.html?product=product-5">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="600" data-category="socks" data-index="5">
+            <img class="product-card__image" src="images/noski2.webp" alt="Белые носки с красными полосками и логотипом 1С" srcset="images/noski2-320.webp 320w, images/noski2-640.webp 640w" sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, calc(100vw - 64px)" width="800" height="534" loading="lazy">
+            <h3 class="product-card__title">Носки в полоску «1С»</h3>
+            <p class="product-card__description">Мерч 1С для повседневного комфорта.</p>
+            <p class="product-card__price">Цена: 600 руб.</p>
+            <div class="product-card__actions">
+
+              <a class="button button--primary" href="order.html?product=product-6">Заказать</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>

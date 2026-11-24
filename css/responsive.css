@@ -555,7 +555,6 @@ footer p {
   transform: scale(1.04);
 }
 
-/* КР №4: корзина и модальное окно */
 .quick-view__grid {
   grid-template-columns: minmax(0, 1fr);
   max-height: calc(100dvh - 32px);

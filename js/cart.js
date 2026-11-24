@@ -1,11 +1,9 @@
 'use strict';
 
-// Корзина хранится в localStorage как массив позиций { id, quantity }.
 const Cart = {
   STORAGE_KEY: 'shop-cart',
   PROMO_KEY: 'shop-promo',
 
-  // Читает корзину из localStorage; при ошибке возвращает пустой массив.
   load() {
     try {
       const raw = localStorage.getItem(Cart.STORAGE_KEY);
@@ -16,12 +14,10 @@ const Cart = {
     }
   },
 
-  // Сохраняет корзину; недоступность localStorage не ломает работу.
   save(items) {
     try {
       localStorage.setItem(Cart.STORAGE_KEY, JSON.stringify(items));
     } catch {
-      /* Корзина действует до перезагрузки страницы. */
     }
   },
 
@@ -29,7 +25,6 @@ const Cart = {
     return Cart.load();
   },
 
-  // Количество единиц товара в корзине (для счётчика в шапке).
   count() {
     return Cart.getItems().reduce((sum, item) => sum + item.quantity, 0);
   },
@@ -69,7 +64,6 @@ const Cart = {
     Cart.updateBadge();
   },
 
-  // Полные позиции корзины: товар, количество и сумма по позиции.
   getDetailedItems() {
     return Cart.getItems()
       .map((item) => {
@@ -84,7 +78,6 @@ const Cart = {
       .filter(Boolean);
   },
 
-  // Сумма всех позиций без учёта скидки.
   subtotal() {
     return Cart.getDetailedItems().reduce((sum, item) => sum + item.lineTotal, 0);
   },
@@ -97,14 +90,12 @@ const Cart = {
     }
   },
 
-  // Применяет промокод; возвращает код при успехе, иначе null.
   applyPromo(code) {
     const normalized = (code || '').trim().toUpperCase();
     if (!normalized) {
       try {
         localStorage.removeItem(Cart.PROMO_KEY);
       } catch {
-        /* нет доступа */
       }
       return null;
     }
@@ -112,26 +103,22 @@ const Cart = {
       try {
         localStorage.setItem(Cart.PROMO_KEY, normalized);
       } catch {
-        /* нет доступа */
       }
       return normalized;
     }
     return null;
   },
 
-  // Размер скидки в рублях по применённому промокоду.
   discount() {
     const promo = Cart.getPromo();
     if (!promo || !promoCodes[promo]) return 0;
     return Math.round((Cart.subtotal() * promoCodes[promo].percent) / 100);
   },
 
-  // Итоговая сумма с учётом скидки.
   total() {
     return Cart.subtotal() - Cart.discount();
   },
 
-  // Обновляет счётчики корзины в шапке.
   updateBadge() {
     const count = Cart.count();
     document.querySelectorAll('.cart-badge').forEach((badge) => {
@@ -140,7 +127,6 @@ const Cart = {
     });
   },
 
-  // Рендерит страницу корзины (cart.html).
   initPage() {
     const root = document.getElementById('cart-root');
     if (!root) return;
@@ -244,7 +230,6 @@ const Cart = {
 
       summary.append(subtotalRow, discountRow, totalRow);
 
-      // Промокод.
       const promo = document.createElement('div');
       promo.className = 'cart-promo';
 
@@ -298,7 +283,6 @@ const Cart = {
       root.append(list, summary, promo, actions);
     };
 
-    // Изменение количества и удаление через делегирование.
     root.addEventListener('click', (event) => {
       const minus = event.target.closest('.cart-item__minus');
       if (minus) {

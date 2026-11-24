@@ -1,6 +1,5 @@
 'use strict';
 
-// Собирает блок характеристик товара как семантическую таблицу.
 function buildSpecs(product) {
   const wrapper = document.createElement('div');
   wrapper.className = 'table-wrapper';
@@ -38,7 +37,6 @@ function buildSpecs(product) {
   return wrapper;
 }
 
-// Инициализирует страницу товара по параметру ?id= в адресной строке.
 function initProductPage() {
   const root = document.getElementById('product-root');
   if (!root) return;

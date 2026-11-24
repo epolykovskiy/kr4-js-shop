@@ -1,6 +1,5 @@
 'use strict';
 
-// Инициализирует форму обратной связи (feedback.html и contacts.html).
 function initFeedbackPage() {
   const form = document.getElementById('feedback-form');
   if (!form) return;

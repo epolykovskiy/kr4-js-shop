@@ -1,6 +1,5 @@
 'use strict';
 
-// Заполняет и открывает модальное окно быстрого просмотра товара.
 function openQuickView(product) {
   const dialog = document.getElementById('quick-view');
   if (!dialog) return;
@@ -38,7 +37,6 @@ function openQuickView(product) {
   dialog.showModal();
 }
 
-// Инициализирует модальное окно: делегирование кликов и закрытие.
 function initQuickView() {
   const dialog = document.getElementById('quick-view');
   if (!dialog) return;

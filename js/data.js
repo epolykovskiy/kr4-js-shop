@@ -1,6 +1,5 @@
 'use strict';
 
-// Категории товаров: ключи совпадают со значениями фильтра в catalog.html.
 const categories = {
   shoes: 'Обувь',
   socks: 'Носки',
@@ -8,21 +7,17 @@ const categories = {
   accessories: 'Аксессуары',
 };
 
-// Подписи бейджей на карточке товара.
 const badgeLabels = {
   hit: 'Хит',
   new: 'Новинка',
   discount: 'Скидка',
 };
 
-// Промокоды: ключ — код, percent — размер скидки в процентах.
 const promoCodes = {
   MERCH10: { percent: 10 },
   MERCH20: { percent: 20 },
 };
 
-// Массив товаров. У всех одинаковая структура: id, title, category, price,
-// isAvailable и дополнительные свойства для карточки и страницы товара.
 const products = [
   {
     id: 1,
@@ -166,7 +161,6 @@ const products = [
   },
 ];
 
-// Форматирует цену: 1000 -> «1 000 руб.».
 function formatPrice(price) {
   return `${price.toLocaleString('ru-RU')} руб.`;
 }

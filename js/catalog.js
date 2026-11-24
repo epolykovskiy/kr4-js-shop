@@ -1,7 +1,5 @@
 'use strict';
 
-// Собирает карточку товара средствами DOM: createElement, textContent,
-// classList и append. Пользовательские данные не попадают в innerHTML.
 function buildCard(product) {
   const card = document.createElement('article');
   card.className = 'product-card';
@@ -84,7 +82,6 @@ function buildCard(product) {
   return card;
 }
 
-// Компаратор сортировки по значению из выпадающего списка.
 function sortComparator(sort) {
   switch (sort) {
     case 'price-asc':
@@ -100,7 +97,6 @@ function sortComparator(sort) {
   }
 }
 
-// Инициализирует каталог: генерация карточек, поиск, фильтр и сортировка.
 function initCatalog() {
   const grid = document.querySelector('.catalog-products .products-grid');
   if (!grid) return;
@@ -115,7 +111,6 @@ function initCatalog() {
   const empty = document.getElementById('catalog-empty');
   const resetButton = document.getElementById('catalog-reset');
 
-  // Категории заполняются из data.js, чтобы значения совпадали с фильтром.
   if (categorySelect) {
     const allOption = document.createElement('option');
     allOption.value = 'all';
@@ -142,7 +137,6 @@ function initCatalog() {
       return matchesQuery && matchesCategory && matchesPrice;
     });
 
-    // Сортировка применяется к копии массива — исходный порядок не меняется.
     return [...filtered].sort(sortComparator(sortSelect ? sortSelect.value : 'default'));
   }
 
@@ -178,7 +172,6 @@ function initCatalog() {
   render();
 }
 
-// Популярные товары на главной странице.
 function initPopularProducts() {
   const grid = document.getElementById('popular-grid');
   if (!grid) return;

@@ -1,6 +1,5 @@
 'use strict';
 
-// Временное уведомление на странице вместо alert().
 function showToast(message) {
   const toast = document.getElementById('toast');
   if (!toast) return;
@@ -12,7 +11,6 @@ function showToast(message) {
   }, 2500);
 }
 
-// Мобильное меню: раскрытие, Escape и синхронизация с шириной экрана.
 function initMenu() {
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.site-nav');
@@ -59,7 +57,6 @@ function initMenu() {
   syncMenu();
 }
 
-// Делегирование кликов по кнопкам «В корзину» на любой странице.
 function initAddToCart() {
   document.addEventListener('click', (event) => {
     const button = event.target.closest('.product-card__add');
@@ -78,8 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAddToCart();
   Cart.updateBadge();
 
-  // Функции страниц вызываются только там, где загружены их скрипты,
-  // поэтому каждая проверяется на существование.
   if (typeof initPopularProducts === 'function') initPopularProducts();
   if (typeof initCatalog === 'function') initCatalog();
   if (typeof initQuickView === 'function') initQuickView();

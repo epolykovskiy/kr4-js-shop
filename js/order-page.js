@@ -1,6 +1,5 @@
 'use strict';
 
-// Инициализирует форму заявки на странице order.html.
 function initOrderPage() {
   const form = document.getElementById('order-form');
   if (!form) return;
@@ -9,7 +8,6 @@ function initOrderPage() {
   const quantityInput = document.getElementById('order-quantity');
   const success = document.getElementById('success-message');
 
-  // Список товаров заполняется из data.js.
   productSelect.replaceChildren();
   const placeholder = document.createElement('option');
   placeholder.value = '';
@@ -24,7 +22,6 @@ function initOrderPage() {
       productSelect.append(option);
     });
 
-  // Предвыбор товара из адресной строки: order.html?product=3
   const requested = Number(new URLSearchParams(window.location.search).get('product'));
   if (products.some((product) => product.id === requested)) {
     productSelect.value = String(requested);

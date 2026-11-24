@@ -1,9 +1,5 @@
-/* ===============================
-   1. Переменные проекта
-   =============================== */
-
 :root {
-  /* Цвета светлой темы */
+  
   color-scheme: light;
   --color-bg: #f2f2f2;
   --color-surface: #ffffff;
@@ -22,23 +18,19 @@
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
 
-  /* Отступы */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
 
-  /* Скругления */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  /* Размеры */
   --container-width: 1100px;
 }
 
-/* Цвета тёмной темы */
 :root[data-theme="dark"] {
   color-scheme: dark;
   --color-bg: #1c1c1e;
@@ -53,10 +45,6 @@
   --color-danger: #ff4d4d;
   --color-success-bg: #1f3a26;
 }
-
-/* ===============================
-   2. Базовые стили
-   =============================== */
 
 * {
   box-sizing: border-box;
@@ -92,10 +80,6 @@ header {
 footer {
   background-color: var(--color-surface);
 }
-
-/* ===============================
-   3. Общие элементы интерфейса
-   =============================== */
 
 .button {
   display: inline-block;
@@ -152,10 +136,6 @@ a:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;
 }
-
-/* ===============================
-   4. Компоненты страницы
-   =============================== */
 
 .site-header {
   background-color: var(--color-surface);
@@ -493,10 +473,6 @@ a:focus-visible {
   color: var(--color-on-primary);
 }
 
-/* ===============================
-   5. Форма и модальное окно
-   =============================== */
-
 .order-dialog {
   width: min(100% - 32px, 560px);
   padding: var(--space-lg);
@@ -565,10 +541,6 @@ a:focus-visible {
   border-left: 4px solid var(--color-success);
   background-color: var(--color-success-bg);
 }
-
-/* ===============================
-   6. Корзина, бейджи и уведомления (КР №4)
-   =============================== */
 
 .cart-badge {
   display: inline-flex;
@@ -639,7 +611,6 @@ a:focus-visible {
   background-color: var(--color-bg);
 }
 
-/* Корзина */
 .cart-list {
   display: grid;
   gap: var(--space-md);
@@ -739,7 +710,6 @@ a:focus-visible {
   margin-top: var(--space-md);
 }
 
-/* Всплывающее уведомление */
 .toast {
   position: fixed;
   left: 50%;
@@ -754,7 +724,6 @@ a:focus-visible {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Модальное окно быстрого просмотра */
 .quick-view {
   width: min(100% - 32px, 720px);
   padding: 0;

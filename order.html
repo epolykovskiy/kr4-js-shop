@@ -7,10 +7,12 @@
   <title>Заявка — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <script src="js/main.js" defer></script>
   <script src="js/theme.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/validation.js" defer></script>
   <script src="js/order-page.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">К содержимому</a>
@@ -28,16 +30,13 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
+            <a class="site-nav__link" href="cart.html">Корзина <span class="cart-badge" hidden>0</span></a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link site-nav__link--active" aria-current="page" href="order.html">Сделать заказ</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="feedback.html">Обратная связь</a>
@@ -58,28 +57,23 @@
       <h1>Оформление заявки</h1>
 
       <p class="form-note">Учебная форма: данные проверяются только в браузере и никуда не отправляются. Обязательные поля отмечены в подписях.</p>
+
       <form class="order-form" id="order-form" action="#" method="post" novalidate>
         <div class="order-form__field">
           <label class="order-form__label" for="order-selected-product">Товар (обязательно)</label>
-          <select class="order-form__select" id="order-selected-product" name="selected-product" required>
-            <option value="">Выберите Товар</option>
-            <option value="product-1">Тапочки меховые «1С»</option>
-            <option value="product-2">Сабо «1С»</option>
-            <option value="product-3">Резиновые сапоги «1С»</option>
-            <option value="product-4">Тапочки серые «1С»</option>
-            <option value="product-5">Носки чёрные «1С»</option>
-            <option value="product-6">Носки в полоску «1С»</option>
-          </select>
+          <select class="order-form__select" id="order-selected-product" name="selected-product" required></select>
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-size">Размер (уточните при необходимости)</label>
           <input class="order-form__input" id="order-size" name="size" type="text" maxlength="20" placeholder="Например, 38–39">
         </div>
+
         <div class="order-form__field">
           <label class="order-form__label" for="order-quantity">Количество (обязательно)</label>
           <input class="order-form__input" id="order-quantity" name="quantity" type="number" min="1" max="99" value="1" required>
         </div>
+
         <div class="order-form__field">
           <label class="order-form__label" for="order-name">Имя (обязательно)</label>
           <input
@@ -97,39 +91,36 @@
         <div class="order-form__field">
           <label class="order-form__label" for="order-email">E-mail (обязательно)</label>
           <input
-           class="order-form__input"
-           id="order-email"
-           name="email"
-           type="email"
-           placeholder="example@mail.ru"
-           autocomplete="email"
-           required
+            class="order-form__input"
+            id="order-email"
+            name="email"
+            type="email"
+            placeholder="example@mail.ru"
+            autocomplete="email"
+            required
           >
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-phone">Телефон (обязательно)</label>
           <input
-           class="order-form__input"
-           id="order-phone"
-           name="phone"
-           type="tel"
-           autocomplete="tel" inputmode="tel" aria-describedby="phone-hint"
-           placeholder="+7 (900) 000-00-00"
-           pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-           required
+            class="order-form__input"
+            id="order-phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            inputmode="tel"
+            aria-describedby="phone-hint"
+            placeholder="+7 (900) 000-00-00"
+            pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+            required
           >
           <small id="phone-hint">Формат: +7 (900) 000-00-00</small>
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-date">Дата связи</label>
-          <input
-            class="order-form__input"
-            id="order-date"
-            name="date"
-            type="date"
-          >
+          <input class="order-form__input" id="order-date" name="date" type="date">
         </div>
 
         <div class="order-form__field">
@@ -142,9 +133,10 @@
           </select>
         </div>
 
-        <div class="order-form__field">
+        <div class="order-form__field order-form__field--textarea">
           <label class="order-form__label" for="order-comment">Комментарий</label>
-          <textarea class="order-form__textarea"
+          <textarea
+            class="order-form__textarea"
             id="order-comment"
             name="comment"
             rows="4"
@@ -154,32 +146,27 @@
 
         <div class="order-form__field order-form__field--checkbox">
           <label>
-          <input
-            id="order-agreement"
-            name="agreement"
-            type="checkbox"
-            required
-          >
-          Я согласен на обработку данных (обязательно)
+            <input id="order-agreement" name="agreement" type="checkbox" required>
+            Я согласен на обработку данных (обязательно)
           </label>
         </div>
 
         <div class="order-form__actions">
-          <button class="button button--primary" type="submit">
-            Проверить заявку
-          </button>
+          <button class="button button--primary" type="submit">Проверить заявку</button>
         </div>
       </form>
-    </section>
 
-  <p class="success-message" id="success-message" role="status" hidden>
-    Учебная заявка проверена. Данные никуда не отправлены.
-  </p>
+      <p class="success-message" id="success-message" role="status" hidden>
+        Учебная заявка проверена. Данные никуда не отправлены.
+      </p>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
+
+  <div class="toast" id="toast" role="status" hidden></div>
 </body>
 </html>

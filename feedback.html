@@ -7,10 +7,12 @@
   <title>Обратная связь — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <script src="js/main.js" defer></script>
   <script src="js/theme.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/validation.js" defer></script>
   <script src="js/feedback-page.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">К содержимому</a>
@@ -28,16 +30,13 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
+            <a class="site-nav__link" href="cart.html">Корзина <span class="cart-badge" hidden>0</span></a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="order.html">Сделать заказ</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link site-nav__link--active" aria-current="page" href="feedback.html">Обратная связь</a>
@@ -56,11 +55,9 @@
 
     <section class="section">
       <h1>Обратная связь</h1>
-      <p>
-        Задайте вопрос или оставьте отзыв о магазине. Это демонстрационная форма без отправки данных.
-      </p>
-
+      <p>Задайте вопрос или оставьте отзыв о магазине. Это демонстрационная форма без отправки данных.</p>
       <p class="form-note">Учебная форма: данные проверяются только в браузере и никуда не отправляются. Обязательные поля отмечены в подписях.</p>
+
       <form class="order-form" id="feedback-form" action="#" method="post" novalidate>
         <div class="order-form__field">
           <label class="order-form__label" for="feedback-name">Имя (обязательно)</label>
@@ -89,7 +86,7 @@
           >
         </div>
 
-        <div class="order-form__field">
+        <div class="order-form__field order-form__field--textarea">
           <label class="order-form__label" for="feedback-message">Сообщение (обязательно)</label>
           <textarea
             class="order-form__textarea"
@@ -104,32 +101,27 @@
 
         <div class="order-form__field order-form__field--checkbox">
           <label>
-            <input
-              id="feedback-agreement"
-              name="agreement"
-              type="checkbox"
-              required
-            >
+            <input id="feedback-agreement" name="agreement" type="checkbox" required>
             Я согласен на обработку данных (обязательно)
           </label>
         </div>
 
         <div class="order-form__actions">
-          <button class="button button--primary" type="submit">
-            Проверить сообщение
-          </button>
+          <button class="button button--primary" type="submit">Проверить сообщение</button>
         </div>
       </form>
-    </section>
 
-    <p class="success-message" id="success-message" role="status" hidden>
-      Учебное сообщение проверено. Данные никуда не отправлены.
-    </p>
+      <p class="success-message" id="success-message" role="status" hidden>
+        Учебное сообщение проверено. Данные никуда не отправлены.
+      </p>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
+
+  <div class="toast" id="toast" role="status" hidden></div>
 </body>
 </html>

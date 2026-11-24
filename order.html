@@ -58,22 +58,12 @@
 
       <p class="form-note">Учебная форма: данные проверяются только в браузере и никуда не отправляются. Обязательные поля отмечены в подписях.</p>
 
+      <section class="order-summary" aria-labelledby="order-summary-title">
+        <h2 id="order-summary-title">Состав заказа</h2>
+        <div id="order-summary-root"></div>
+      </section>
+
       <form class="order-form" id="order-form" action="#" method="post" novalidate>
-        <div class="order-form__field">
-          <label class="order-form__label" for="order-selected-product">Товар (обязательно)</label>
-          <select class="order-form__select" id="order-selected-product" name="selected-product" required></select>
-        </div>
-
-        <div class="order-form__field">
-          <label class="order-form__label" for="order-size">Размер (уточните при необходимости)</label>
-          <input class="order-form__input" id="order-size" name="size" type="text" maxlength="20" placeholder="Например, 38–39">
-        </div>
-
-        <div class="order-form__field">
-          <label class="order-form__label" for="order-quantity">Количество (обязательно)</label>
-          <input class="order-form__input" id="order-quantity" name="quantity" type="number" min="1" max="99" value="1" required>
-        </div>
-
         <div class="order-form__field">
           <label class="order-form__label" for="order-name">Имя (обязательно)</label>
           <input

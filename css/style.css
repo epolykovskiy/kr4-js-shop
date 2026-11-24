@@ -710,6 +710,16 @@ a:focus-visible {
   margin-top: var(--space-md);
 }
 
+.order-summary {
+  max-width: 800px;
+  margin: 0 0 var(--space-lg);
+}
+
+.order-summary .cart-list,
+.order-summary .cart-summary {
+  margin-top: 0;
+}
+
 .toast {
   position: fixed;
   left: 50%;
